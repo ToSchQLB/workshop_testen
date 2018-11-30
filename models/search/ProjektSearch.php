@@ -2,6 +2,7 @@
 
 namespace app\models\search;
 
+use toschqlb\filterhelper\FilterHelper;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
@@ -12,6 +13,16 @@ use app\models\Projekt;
  */
 class ProjektSearch extends Projekt
 {
+
+    public function attributes()
+    {
+        return array_merge(
+            parent::attributes(),
+            [
+                'createUser.name'
+            ]
+        );
+    }
     /**
      * {@inheritdoc}
      */
@@ -19,7 +30,7 @@ class ProjektSearch extends Projekt
     {
         return [
             [['id', 'crus', 'upus'], 'integer'],
-            [['name', 'beschreibung', 'crti', 'upti'], 'safe'],
+            [['name', 'beschreibung', 'crti', 'upti','createUser.name'], 'safe'],
         ];
     }
 
@@ -42,12 +53,18 @@ class ProjektSearch extends Projekt
     public function search($params)
     {
         $query = Projekt::find();
+        $query->joinWith(['createUser']);
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
+
+        $dataProvider->sort->attributes['createUser.name'] = [
+            'asc' => ['user.username' => SORT_ASC],
+            'desc'=> ['user.username' => SORT_DESC],
+        ];
 
         $this->load($params);
 
@@ -59,15 +76,14 @@ class ProjektSearch extends Projekt
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id' => $this->id,
-            'crus' => $this->crus,
-            'crti' => $this->crti,
-            'upus' => $this->upus,
-            'upti' => $this->upti,
+            'id' => $this->id
         ]);
-
+        
         $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'beschreibung', $this->beschreibung]);
+            ->andFilterWhere(['like', 'beschreibung', $this->beschreibung])
+            ->andFilterWhere(['crus' => $this->getAttribute('createUser.name')])
+            ->andFilterWhere(FilterHelper::getDateConditionArray('crti', $this->crti))
+            ->andFilterWhere(FilterHelper::getDateConditionArray('upti', $this->upti));
 
         return $dataProvider;
     }

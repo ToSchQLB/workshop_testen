@@ -1,0 +1,114 @@
+/*
+ * Component: Button
+ * -----------------
+ */
+.btn-default:hover,
+.btn-default:active,
+.btn-default.hover {
+    background-color: #e7e7e7!important;
+}
+.btn-primary {
+    color: #fff!important;
+}
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary.hover {
+    background-color: #367fa9!important;
+}
+.btn-success {
+    color: #fff!important;
+}
+.btn-success:hover,
+.btn-success:active,
+.btn-success.hover {
+    background-color: #008d4c!important;
+}
+.btn-info {
+    color: #fff!important;
+}
+.btn-info:hover,
+.btn-info:active,
+.btn-info.hover {
+    background-color: #00acd6!important;
+}
+.btn-danger {
+    color: #fff!important;
+}
+.btn-danger:hover,
+.btn-danger:active,
+.btn-danger.hover {
+    background-color: #d73925!important;
+}
+.btn-warning {
+    color: #fff!important;
+}
+.btn-warning:hover,
+.btn-warning:active,
+.btn-warning.hover {
+    background-color: #e08e0b!important;
+}
+.btn-outline {
+    color: #fff!important;
+}
+.btn-outline:hover,
+.btn-outline:focus,
+.btn-outline:active {
+    color: rgba(255, 255, 255, 0.7)!important;
+    border-color: rgba(255, 255, 255, 0.7)!important;
+}
+.btn-link {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.btn[class*='bg-']:hover {
+    -webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.2);
+}
+.btn-app {
+    border-radius: 3px;
+    position: relative;
+    padding: 15px 5px;
+    margin: 0 0 10px 10px;
+    min-width: 80px;
+    height: 60px;
+    text-align: center;
+    color: #666;
+    border: 1px solid #ddd;
+    background-color: #f4f4f4;
+    font-size: 12px;
+}
+.btn-app > .fa,
+.btn-app > .glyphicon,
+.btn-app > .ion {
+    font-size: 20px;
+    display: block;
+}
+.btn-app:hover {
+    background: #f4f4f4;
+    color: #444;
+    border-color: #aaa;
+}
+.btn-app:active,
+.btn-app:focus {
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    -moz-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+.btn-app > .badge {
+    position: absolute;
+    top: -3px;
+    right: -10px;
+    font-size: 10px;
+    font-weight: 400;
+}
+
+.no-site-padding{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.table-head-sticky thead{
+    top: 50px;
+    position: sticky!important;
+    background-color: #ffffff;
+}

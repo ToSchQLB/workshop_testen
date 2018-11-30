@@ -19,7 +19,9 @@
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "dmstr/yii2-adminlte-asset": "^2.6",
-        "2amigos/yii2-usuario": "^1.1"
+        "2amigos/yii2-usuario": "^1.1",
+        "kartik-v/yii2-widgets": "^3.4",
+        "toschqlb/yii2-filter-helper": "^0.1.4"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
@@ -38,7 +40,8 @@
         },
         "platform": {
             "php": "5.5.9"
-        }
+        },
+        "secure-http": false
     },
     "scripts": {
         "post-install-cmd": [
@@ -72,6 +75,10 @@
         {
             "type": "composer",
             "url": "https://asset-packagist.org"
+        },
+        {
+            "type": "git",
+            "url": "http://tosch.selfhost.eu/gitea/toni/yii2-filter-helper.git"
         }
     ]
 }

@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "projekt".
@@ -15,13 +16,10 @@ use Yii;
  * @property int $upus
  * @property string $upti
  *
- * @property User $upus0
- * @property User $crus0
  * @property ProjektUser[] $projektUsers
- * @property User[] $users
  * @property Ticket[] $tickets
  */
-class Projekt extends \yii\db\ActiveRecord
+class Projekt extends CrUpRecord
 {
     /**
      * {@inheritdoc}
@@ -52,32 +50,16 @@ class Projekt extends \yii\db\ActiveRecord
      */
     public function attributeLabels()
     {
-        return [
-            'id' => Yii::t('projekt', 'ID'),
-            'name' => Yii::t('projekt', 'Name'),
-            'beschreibung' => Yii::t('projekt', 'Beschreibung'),
-            'crus' => Yii::t('projekt', 'Crus'),
-            'crti' => Yii::t('projekt', 'Crti'),
-            'upus' => Yii::t('projekt', 'Upus'),
-            'upti' => Yii::t('projekt', 'Upti'),
-        ];
+        return ArrayHelper::merge(
+            parent::attributeLabels(),
+            [
+                'id' => Yii::t('projekt', 'ID'),
+                'name' => Yii::t('projekt', 'Name'),
+                'beschreibung' => Yii::t('projekt', 'Beschreibung'),
+            ]
+        );
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getUpus0()
-    {
-        return $this->hasOne(User::className(), ['id' => 'upus']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getCrus0()
-    {
-        return $this->hasOne(User::className(), ['id' => 'crus']);
-    }
 
     /**
      * @return \yii\db\ActiveQuery
