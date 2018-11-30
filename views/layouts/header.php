@@ -5,11 +5,11 @@ use yii\helpers\Html;
 /* @var $content string */
 ?>
 
-<header class="main-header">
+<header class="main-header" style="position: sticky; top: 0px;">
 
     <?= Html::a('<span class="logo-mini">APP</span><span class="logo-lg">' . Yii::$app->name . '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
 
-    <nav class="navbar navbar-static-top" role="navigation">
+    <nav class="navbar navbar-static-top navbar-fixed-top" role="navigation">
 
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
             <span class="sr-only">Toggle navigation</span>
@@ -19,6 +19,28 @@ use yii\helpers\Html;
 
             <ul class="nav navbar-nav">
 
+
+                <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="hidden-xs"><?= Yii::$app->user->isGuest ? 'Gast' : Yii::$app->user->identity->username ?></span>
+                    </a>
+                    <ul class="dropdown-menu">
+
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <div class="pull-left">
+                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                            </div>
+                            <div class="pull-right">
+                                <?= Html::a(
+                                    Yii::$app->user->isGuest ? Yii::t('app', 'Anmelden') : Yii::t('app', 'abmelden'),
+                                    [Yii::$app->user->isGuest ? 'user/security/login' : 'user/security/logout'],
+                                    ['data-method' => 'post', 'class' => 'btn btn-default btn-flat']
+                                ) ?>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </nav>

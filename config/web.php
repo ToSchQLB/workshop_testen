@@ -44,6 +44,32 @@ $config = [
         ],
         'db' => $db,
         'authManager' => \yii\rbac\DbManager::className(),
+        'i18n' => [
+            'translations' => [
+                'projekt' => [
+                    'class' => \yii\i18n\PhpMessageSource::className(),
+                    'basePath' => '@app/messages',
+                    'fileMap' => [
+                        'projekt' => 'projekt.php'
+                    ]
+                ],
+                'ticket' => [
+                    'class' => \yii\i18n\PhpMessageSource::className(),
+                    'basePath' => '@app/messages',
+                    'fileMap' => [
+                        'ticket' => 'ticket.php'
+                    ]
+                ],
+                'app' => [
+                    'class' => \yii\i18n\PhpMessageSource::className(),
+                    'basePath' => '@app/messages',
+                    'fileMap' => [
+                        'app' => 'app.php'
+                    ]
+                ]
+            ]
+
+        ],
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -54,6 +80,26 @@ $config = [
         */
     ],
     'params' => $params,
+    'modules' => [
+        'user' => [
+            'class' => Da\User\Module::className(),
+            'routes' => [
+                '<id:\d+>' => 'profile/show',
+                '<action:(login|logout)>' => 'security/<action>',
+                '<action:(register|resend)>' => 'registration/<action>',
+                'confirm/<id:\d+>/<code:[A-Za-z0-9_-]+>' => 'registration/confirm',
+                'forgot' => 'recovery/request',
+                'recover/<id:\d+>/<code:[A-Za-z0-9_-]+>' => 'recovery/reset',
+                'settings/<action:\w+>' => 'settings/<action>',
+            ],
+            'generatePasswords' => false,
+            'administrators' => ['toni.schreiber'],
+//            'administratorPermissionName' => 'Nutzerverwaltung',
+            // ...other configs from here: [Configuration Options](installation/configuration-options.md), e.g.
+            // 'generatePasswords' => true,
+            // 'switchIdentitySessionKey' => 'myown_usuario_admin_user_key',
+        ],
+    ]
 ];
 
 if (YII_ENV_DEV) {

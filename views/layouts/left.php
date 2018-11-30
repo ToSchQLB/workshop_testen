@@ -1,6 +1,6 @@
 <aside class="main-sidebar">
 
-    <section class="sidebar">
+    <section class="sidebar" style="position: sticky; top: 60px">
 
         <!-- search form -->
 <!--        <form action="#" method="get" class="sidebar-form">-->
@@ -21,7 +21,7 @@
                     ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
-                    ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
+                    ['label' => 'Login', 'url' => ['/user/security/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Some tools',
                         'icon' => 'share',

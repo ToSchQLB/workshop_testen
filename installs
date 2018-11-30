@@ -1,3 +1,5 @@
+composer install
+
 yii migrate --migrationNamespaces=Da\User\Migration
 
 config auth-manager:
