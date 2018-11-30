@@ -3,7 +3,7 @@
 use yii\db\Migration;
 
 /**
- * Handles the creation of table `ticktet_status`.
+ * Handles the creation of table `ticket_status`.
  * Has foreign keys to the tables:
  *
  * - `user`
@@ -16,7 +16,7 @@ class m181129_194749_create_ticktet_status_table extends Migration
      */
     public function safeUp()
     {
-        $this->createTable('ticktet_status', [
+        $this->createTable('ticket_status', [
             'id' => $this->primaryKey(),
             'name' => $this->string(50)->notNull(),
             'crus' => $this->integer(),
@@ -27,15 +27,15 @@ class m181129_194749_create_ticktet_status_table extends Migration
 
         // creates index for column `crus`
         $this->createIndex(
-            'idx-ticktet_status-crus',
-            'ticktet_status',
+            'idx-ticket_status-crus',
+            'ticket_status',
             'crus'
         );
 
         // add foreign key for table `user`
         $this->addForeignKey(
-            'fk-ticktet_status-crus',
-            'ticktet_status',
+            'fk-ticket_status-crus',
+            'ticket_status',
             'crus',
             'user',
             'id',
@@ -44,15 +44,15 @@ class m181129_194749_create_ticktet_status_table extends Migration
 
         // creates index for column `upus`
         $this->createIndex(
-            'idx-ticktet_status-upus',
-            'ticktet_status',
+            'idx-ticket_status-upus',
+            'ticket_status',
             'upus'
         );
 
         // add foreign key for table `user`
         $this->addForeignKey(
-            'fk-ticktet_status-upus',
-            'ticktet_status',
+            'fk-ticket_status-upus',
+            'ticket_status',
             'upus',
             'user',
             'id',
@@ -67,28 +67,28 @@ class m181129_194749_create_ticktet_status_table extends Migration
     {
         // drops foreign key for table `user`
         $this->dropForeignKey(
-            'fk-ticktet_status-crus',
-            'ticktet_status'
+            'fk-ticket_status-crus',
+            'ticket_status'
         );
 
         // drops index for column `crus`
         $this->dropIndex(
-            'idx-ticktet_status-crus',
-            'ticktet_status'
+            'idx-ticket_status-crus',
+            'ticket_status'
         );
 
         // drops foreign key for table `user`
         $this->dropForeignKey(
-            'fk-ticktet_status-upus',
-            'ticktet_status'
+            'fk-ticket_status-upus',
+            'ticket_status'
         );
 
         // drops index for column `upus`
         $this->dropIndex(
-            'idx-ticktet_status-upus',
-            'ticktet_status'
+            'idx-ticket_status-upus',
+            'ticket_status'
         );
 
-        $this->dropTable('ticktet_status');
+        $this->dropTable('ticket_status');
     }
 }
