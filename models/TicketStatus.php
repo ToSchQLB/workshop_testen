@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "ticket_status".
@@ -49,14 +50,13 @@ class TicketStatus extends CrUpRecord
      */
     public function attributeLabels()
     {
-        return [
-            'id' => Yii::t('ticket', 'ID'),
-            'name' => Yii::t('ticket', 'Name'),
-            'crus' => Yii::t('ticket', 'Crus'),
-            'crti' => Yii::t('ticket', 'Crti'),
-            'upus' => Yii::t('ticket', 'Upus'),
-            'upti' => Yii::t('ticket', 'Upti'),
-        ];
+        return ArrayHelper::merge(
+            parent::attributeLabels(),
+            [
+                'id' => Yii::t('ticket', 'ID'),
+                'name' => Yii::t('ticket', 'Name'),
+            ]
+        );
     }
 
     /**
@@ -73,21 +73,5 @@ class TicketStatus extends CrUpRecord
     public function getTicketHistories()
     {
         return $this->hasMany(TicketHistorie::className(), ['ticket_status_id' => 'id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getUpus0()
-    {
-        return $this->hasOne(User::className(), ['id' => 'upus']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getCrus0()
-    {
-        return $this->hasOne(User::className(), ['id' => 'crus']);
     }
 }
