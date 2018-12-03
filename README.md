@@ -1,6 +1,6 @@
-#Workshop Testen
+# Workshop Testen
 
-##DIRECTORY STRUCTURE
+## DIRECTORY STRUCTURE
 
 
       assets/             contains assets definition
