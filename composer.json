@@ -21,14 +21,13 @@
         "dmstr/yii2-adminlte-asset": "^2.6",
         "2amigos/yii2-usuario": "^1.1",
         "kartik-v/yii2-widgets": "^3.4",
-        "toschqlb/yii2-filter-helper": "^0.1.4"
+        "toschqlb/yii2-filter-helper": "^0.1.4",
+        "codeception/codeception": "^2.4"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
         "yiisoft/yii2-gii": "~2.0.0",
         "yiisoft/yii2-faker": "~2.0.0",
-
-        "codeception/base": "^2.2.3",
         "codeception/verify": "~0.3.1",
         "codeception/specify": "~0.4.3",
         "friendsofphp/php-cs-fixer": "*"
