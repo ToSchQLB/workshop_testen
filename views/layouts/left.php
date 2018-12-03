@@ -18,6 +18,8 @@
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
+                    ['label' => 'Projekte', 'icon'=> \app\models\Projekt::$icon, 'url'=>['/projekt']],
+                    ['label' => 'Tickets', 'icon'=> \app\models\Ticket::$icon, 'url'=>['/ticket']],
                     ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],

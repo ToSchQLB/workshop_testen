@@ -94,7 +94,7 @@ $config = [
             ],
             'generatePasswords' => false,
             'administrators' => ['toni.schreiber'],
-//            'administratorPermissionName' => 'Nutzerverwaltung',
+            'administratorPermissionName' => 'Admin',
             // ...other configs from here: [Configuration Options](installation/configuration-options.md), e.g.
             // 'generatePasswords' => true,
             // 'switchIdentitySessionKey' => 'myown_usuario_admin_user_key',

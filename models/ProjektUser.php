@@ -16,6 +16,10 @@ use Yii;
  */
 class ProjektUser extends \yii\db\ActiveRecord
 {
+    const R_LEITER = 1;
+    const R_ENTWICKLER = 2;
+    const R_REPORTER = 3;
+
     /**
      * {@inheritdoc}
      */

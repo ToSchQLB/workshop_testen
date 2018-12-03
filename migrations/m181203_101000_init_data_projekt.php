@@ -1,0 +1,106 @@
+<?php
+
+use yii\db\Migration;
+
+/**
+ * Class m181203_100400_init_data_projekt
+ */
+class m181203_101000_init_data_projekt extends Migration
+{
+    public static $data = [
+        [
+            'data' => [
+                'name' => 'Testen mit Codecept',
+                'beschreibung' => "Alles was man braucht um mit Codeception testen zu können",
+                'crus' => 4,
+                'upti' => 4,
+                'crti' => '2018-12-10 10:00:00',
+                'upti' => '2018-12-10 10:00:00'
+            ],
+            'rollen' => [
+                4 => \app\models\ProjektUser::R_LEITER,
+                3 => \app\models\ProjektUser::R_REPORTER,
+            ]
+        ],
+        [
+            'data' => [
+                'name' => 'Beispiel 1',
+                'beschreibung' => 'Die ist nur ein Beispiel Projekt',
+                'crus' => 3,
+                'upti' => 3,
+                'crti' => '2018-12-10 10:00:00',
+                'upti' => '2018-12-10 10:00:00'
+            ],
+            'rollen' => [
+                3 => \app\models\ProjektUser::R_LEITER,
+                4 => \app\models\ProjektUser::R_REPORTER,
+            ],
+        ],
+        [
+            'data' => [
+                'name' => 'Beispiel 2',
+                'beschreibung' => 'Die ist nur ein Beispiel Projekt',
+                'crus' => 3,
+                'upti' => 3,
+                'crti' => '2018-12-10 10:00:00',
+                'upti' => '2018-12-10 10:00:00'
+            ],
+            'rollen' => [
+                3 => \app\models\ProjektUser::R_LEITER,
+                4 => \app\models\ProjektUser::R_REPORTER,
+            ],
+        ],
+        [
+            'data' => [
+                'name' => 'Beispiel 3',
+                'beschreibung' => 'Die ist nur ein Beispiel Projekt',
+                'crus' => 2,
+                'upti' => 2,
+                'crti' => '2018-12-10 10:00:00',
+                'upti' => '2018-12-10 10:00:00'
+            ],
+            'rollen' => [
+                2 => \app\models\ProjektUser::R_LEITER,
+            ],
+        ]
+    ];
+    /**
+     * {@inheritdoc}
+     */
+    public function safeUp()
+    {
+        foreach (self::$data as $datum) {
+            $this->insert('projekt', $datum['data']);
+            foreach ($datum['rollen'] as $userId => $rolle) {
+                $this->insert('projekt_user', [
+                    'projekt_id' => \app\models\Projekt::find()->max('id'),
+                    'user_id' => $userId,
+                    'rolle' => $rolle
+                ]);
+            }
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function safeDown()
+    {
+        $this->delete('projekt');
+    }
+
+    /*
+    // Use up()/down() to run migration code without a transaction.
+    public function up()
+    {
+
+    }
+
+    public function down()
+    {
+        echo "m181203_100400_init_data_projekt cannot be reverted.\n";
+
+        return false;
+    }
+    */
+}

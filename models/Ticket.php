@@ -30,6 +30,8 @@ use yii\helpers\ArrayHelper;
  */
 class Ticket extends CrUpRecord
 {
+    public static $icon = 'ticket';
+
     /**
      * {@inheritdoc}
      */

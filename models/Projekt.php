@@ -21,6 +21,8 @@ use yii\helpers\ArrayHelper;
  */
 class Projekt extends CrUpRecord
 {
+
+    public static $icon = 'folder-open-o';
     /**
      * {@inheritdoc}
      */
