@@ -14,7 +14,7 @@ $this->params['actions'][] = Html::a(Yii::t('projekt', 'Update'), ['update', 'id
 $this->params['actions'][] = Html::a(Yii::t('projekt', 'Delete'), ['delete', 'id' => $model->id], [
                                     'class' => 'btn btn-danger',
                                     'data' => [
-                                        'confirm' => Yii::t('projekt', 'Are you sure you want to delete this item?'),
+                                        'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
                                         'method' => 'post',
                                     ],
                                 ]);

@@ -19,7 +19,7 @@ use Yii;
  * @property User $upus0
  * @property User $crus0
  */
-class TicketKategorie extends \yii\db\ActiveRecord
+class TicketKategorie extends CrUpRecord
 {
     /**
      * {@inheritdoc}

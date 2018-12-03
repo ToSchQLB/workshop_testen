@@ -21,7 +21,7 @@ use yii\helpers\ArrayHelper;
  */
 class CrUpRecord extends ActiveRecord
 {
-    public $labelColumn = 'name';
+    public static $labelColumn = 'name';
 
     public function behaviors()
     {
@@ -79,6 +79,6 @@ class CrUpRecord extends ActiveRecord
      */
     public static function allArray()
     {
-        return ArrayHelper::map(static::find()->asArray()->all(), 'id', self::labelColumn);
+        return ArrayHelper::map(static::find()->asArray()->all(), 'id', self::$labelColumn);
     }
 }

@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "ticket".
@@ -19,9 +20,7 @@ use Yii;
  * @property int $upus
  * @property string $upti
  *
- * @property User $upus0
  * @property User $bearbeiter
- * @property User $crus0
  * @property Projekt $projekt
  * @property TicketKategorie $ticketKategorie
  * @property TicketStatus $ticketStatus
@@ -29,7 +28,7 @@ use Yii;
  * @property TicketUser[] $ticketUsers
  * @property User[] $users
  */
-class Ticket extends \yii\db\ActiveRecord
+class Ticket extends CrUpRecord
 {
     /**
      * {@inheritdoc}
@@ -64,19 +63,22 @@ class Ticket extends \yii\db\ActiveRecord
      */
     public function attributeLabels()
     {
-        return [
-            'id' => Yii::t('ticket', 'ID'),
-            'projekt_id' => Yii::t('ticket', 'Projekt ID'),
-            'ticket_kategorie_id' => Yii::t('ticket', 'Ticket Kategorie ID'),
-            'titel' => Yii::t('ticket', 'Titel'),
-            'beschreibung' => Yii::t('ticket', 'Beschreibung'),
-            'bearbeiter_id' => Yii::t('ticket', 'Bearbeiter ID'),
-            'ticket_status_id' => Yii::t('ticket', 'Ticket Status ID'),
-            'crus' => Yii::t('ticket', 'Crus'),
-            'crti' => Yii::t('ticket', 'Crti'),
-            'upus' => Yii::t('ticket', 'Upus'),
-            'upti' => Yii::t('ticket', 'Upti'),
-        ];
+        return ArrayHelper::merge(
+            parent::attributeLabels(),
+            [
+                'id' => Yii::t('ticket', 'ID'),
+                'projekt_id' => Yii::t('projekt', 'Projekt'),
+                'projekt.titel' => Yii::t('projekt', 'Projekt'),
+                'ticket_kategorie_id' => Yii::t('ticket', 'Katgorie'),
+                'ticketKategorie.name' => Yii::t('ticket', 'Katgorie'),
+                'titel' => Yii::t('ticket', 'Titel'),
+                'beschreibung' => Yii::t('ticket', 'Beschreibung'),
+                'bearbeiter_id' => Yii::t('ticket', 'Bearbeiter'),
+                'bearbeiter.name' => Yii::t('ticket', 'Bearbeiter'),
+                'ticket_status_id' => Yii::t('ticket', 'Status'),
+                'ticketStatus.name' => Yii::t('ticket', 'Status'),
+            ]
+        );
     }
 
     /**
