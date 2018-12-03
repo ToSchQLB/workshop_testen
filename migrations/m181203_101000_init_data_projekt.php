@@ -13,7 +13,7 @@ class m181203_101000_init_data_projekt extends Migration
                 'name' => 'Testen mit Codecept',
                 'beschreibung' => "Alles was man braucht um mit Codeception testen zu können",
                 'crus' => 4,
-                'upti' => 4,
+                'upus' => 4,
                 'crti' => '2018-12-10 10:00:00',
                 'upti' => '2018-12-10 10:00:00'
             ],
@@ -27,7 +27,7 @@ class m181203_101000_init_data_projekt extends Migration
                 'name' => 'Beispiel 1',
                 'beschreibung' => 'Die ist nur ein Beispiel Projekt',
                 'crus' => 3,
-                'upti' => 3,
+                'upus' => 3,
                 'crti' => '2018-12-10 10:00:00',
                 'upti' => '2018-12-10 10:00:00'
             ],
@@ -41,7 +41,7 @@ class m181203_101000_init_data_projekt extends Migration
                 'name' => 'Beispiel 2',
                 'beschreibung' => 'Die ist nur ein Beispiel Projekt',
                 'crus' => 3,
-                'upti' => 3,
+                'upus' => 3,
                 'crti' => '2018-12-10 10:00:00',
                 'upti' => '2018-12-10 10:00:00'
             ],
@@ -55,7 +55,7 @@ class m181203_101000_init_data_projekt extends Migration
                 'name' => 'Beispiel 3',
                 'beschreibung' => 'Die ist nur ein Beispiel Projekt',
                 'crus' => 2,
-                'upti' => 2,
+                'upus' => 2,
                 'crti' => '2018-12-10 10:00:00',
                 'upti' => '2018-12-10 10:00:00'
             ],

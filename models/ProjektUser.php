@@ -20,6 +20,18 @@ class ProjektUser extends \yii\db\ActiveRecord
     const R_ENTWICKLER = 2;
     const R_REPORTER = 3;
 
+    public static function roleNames(){
+        return [
+            self::R_LEITER      => Yii::t('projekt', 'Projektleiter'),
+            self::R_ENTWICKLER  => Yii::t('projekt', 'Entwickler'),
+            self::R_REPORTER    => Yii::t('projekt', 'Reporter')
+        ];
+    }
+
+    public static function getRoleName($id){
+        return self::roleNames()[$id];
+    }
+
     /**
      * {@inheritdoc}
      */

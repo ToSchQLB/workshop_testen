@@ -11,7 +11,7 @@ class User extends \Da\User\Model\User
         return $this->username;
     }
 
-    public function allArray(){
+    public static function allArray(){
         return ArrayHelper::map(
             User::find()->select(['id', 'username'])->asArray()->all(),
             'id',

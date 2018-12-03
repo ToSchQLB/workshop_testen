@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\ProjektUser;
 use Yii;
 use app\models\Projekt;
 use app\models\search\ProjektSearch;
@@ -123,5 +124,23 @@ class ProjektController extends Controller
         }
 
         throw new NotFoundHttpException(Yii::t('projekt', 'The requested page does not exist.'));
+    }
+
+    public function actionUserDelete($projekt, $user){
+        ProjektUser::deleteAll(['projekt_id' => $projekt, 'user_id' => $user]);
+        return $this->redirect(['projekt/view', 'id'=>$projekt]);
+    }
+
+    public function actionUserAdd($projekt){
+        $model = new ProjektUser();
+        $model->projekt_id = $projekt;
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $projekt]);
+        }
+
+        return $this->render('user/add', [
+            'model' => $model,
+        ]);
     }
 }
