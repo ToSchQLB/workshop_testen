@@ -47,27 +47,27 @@ $config = [
         'authManager' => \yii\rbac\DbManager::className(),
         'i18n' => [
             'translations' => [
-                'projekt' => [
+                '*' => [
                     'class' => \yii\i18n\PhpMessageSource::className(),
                     'basePath' => '@app/messages',
-                    'fileMap' => [
-                        'projekt' => 'projekt.php'
-                    ]
+//                    'fileMap' => [
+//                        'projekt' => 'projekt.php'
+//                    ]
                 ],
-                'ticket' => [
-                    'class' => \yii\i18n\PhpMessageSource::className(),
-                    'basePath' => '@app/messages',
-                    'fileMap' => [
-                        'ticket' => 'ticket.php'
-                    ]
-                ],
-                'app' => [
-                    'class' => \yii\i18n\PhpMessageSource::className(),
-                    'basePath' => '@app/messages',
-                    'fileMap' => [
-                        'app' => 'app.php'
-                    ]
-                ]
+//                'ticket' => [
+//                    'class' => \yii\i18n\PhpMessageSource::className(),
+//                    'basePath' => '@app/messages',
+//                    'fileMap' => [
+//                          'ticket' => 'ticket.php'
+//                    ]
+//                ],
+//                'app' => [
+//                    'class' => \yii\i18n\PhpMessageSource::className(),
+//                    'basePath' => '@app/messages',
+//                    'fileMap' => [
+//                        'app' => 'app.php'
+//                    ]
+//                ]
             ]
 
         ],

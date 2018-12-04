@@ -35,7 +35,7 @@ return [
     'Search' => 'Suchen',
     'The requested page does not exist.' => 'Die gesuchte Seite gibt es nicht',
     'Update' => 'Bearbeiten',
-    'Update Projekt: {name}' => 'Projekt bearbeten: {name}',
+    'Update Projekt: {name}' => 'Projekt bearbeiten: {name}',
     'User ID' => 'Nutzer',
     'add' => 'hinzufügen',
 ];
