@@ -20,10 +20,10 @@
                 'items' => [
                     ['label' => 'Projekte', 'icon'=> \app\models\Projekt::$icon, 'url'=>['/projekt']],
                     ['label' => 'Tickets', 'icon'=> \app\models\Ticket::$icon, 'url'=>['/ticket']],
+                    ['label' => 'Admin', 'options' => ['class' => 'header'], 'visible' => Yii::$app->user->can('Admin')],
+                    ['label' => 'Ticket-Status', 'url' => ['/ticket-status'], 'visible' => Yii::$app->user->can('Admin')],
+                    ['label' => 'Ticket-Kategorie', 'url' => ['/ticket-kategorie'], 'visible' => Yii::$app->user->can('Admin')],
                     ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
-                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
-                    ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
-                    ['label' => 'Login', 'url' => ['/user/security/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Some tools',
                         'icon' => 'share',
@@ -31,25 +31,11 @@
                         'items' => [
                             ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
                             ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],
-                            [
-                                'label' => 'Level One',
-                                'icon' => 'circle-o',
-                                'url' => '#',
-                                'items' => [
-                                    ['label' => 'Level Two', 'icon' => 'circle-o', 'url' => '#',],
-                                    [
-                                        'label' => 'Level Two',
-                                        'icon' => 'circle-o',
-                                        'url' => '#',
-                                        'items' => [
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                        ],
-                                    ],
-                                ],
-                            ],
                         ],
                     ],
+                    ['label' => 'User-Menu', 'options' => ['class' => 'header']],
+                    ['label' => 'Login', 'url' => ['/user/security/login'], 'visible' => Yii::$app->user->isGuest],
+                    ['label' => 'Logout', 'url' => ['/user/security/logout'], 'visible' => !Yii::$app->user->isGuest],
                 ],
             ]
         ) ?>
