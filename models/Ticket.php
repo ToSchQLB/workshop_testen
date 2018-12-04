@@ -70,7 +70,7 @@ class Ticket extends CrUpRecord
             [
                 'id' => Yii::t('ticket', 'ID'),
                 'projekt_id' => Yii::t('projekt', 'Projekt'),
-                'projekt.titel' => Yii::t('projekt', 'Projekt'),
+                'projekt.name' => Yii::t('projekt', 'Projekt'),
                 'ticket_kategorie_id' => Yii::t('ticket', 'Katgorie'),
                 'ticketKategorie.name' => Yii::t('ticket', 'Katgorie'),
                 'titel' => Yii::t('ticket', 'Titel'),
