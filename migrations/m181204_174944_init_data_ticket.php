@@ -16,7 +16,7 @@ class m181204_174944_init_data_ticket extends Migration
                 'titel' => 'Yii Installieren',
                 'beschreibung' => 'Yii Basic App installieren und composer install ausführen',
                 'bearbeiter_id' => 2,
-                'ticket_status_id' => -5,
+                'ticket_status_id' => -6,
                 'crus' => 2,
                 'crti' => '2018-12-10 10:00:00',
                 'upus' => 2,
@@ -43,7 +43,7 @@ class m181204_174944_init_data_ticket extends Migration
                 [
                     'user_id' => 2,
                     'datum' => '2018-12-10 10:15:00',
-                    'ticket_status_id' => -5,
+                    'ticket_status_id' => -6,
                     'nachricht' => 'Ohne TrendMicro ginge das aber viel schneller!'
                 ]
 
@@ -56,7 +56,7 @@ class m181204_174944_init_data_ticket extends Migration
                 'titel' => 'Anwendung entwickeln',
                 'beschreibung' => 'Alles soll gehen',
                 'bearbeiter_id' => 2,
-                'ticket_status_id' => -5,
+                'ticket_status_id' => -6,
                 'crus' => 2,
                 'crti' => '2018-12-10 10:15:00',
                 'upus' => 2,
@@ -83,7 +83,7 @@ class m181204_174944_init_data_ticket extends Migration
                 [
                     'user_id' => 2,
                     'datum' => '2018-12-10 12:30:00',
-                    'ticket_status_id' => -5,
+                    'ticket_status_id' => -6,
                     'nachricht' => 'Mittach und Fertig'
                 ]
 

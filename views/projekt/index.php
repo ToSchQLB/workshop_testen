@@ -41,7 +41,15 @@ $this->params['actions'][] = Html::a(Yii::t('projekt', 'Create Projekt'), ['crea
                     'crti:datetime',
                     'upti:datetime',
 
-                    ['class' => 'yii\grid\ActionColumn'],
+                    [
+                        'class' => 'yii\grid\ActionColumn',
+                        'template' => '{view} {update} {select} {delete}',
+                        'buttons' => [
+                                'select' => function ($url, $model, $key){
+                                    return "<i class=\"fa fa-bullseye\" aria-hidden=\"true\"></i>";
+                                }
+                        ]
+                    ],
                 ],
             ]); ?>
         </div>
