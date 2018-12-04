@@ -20,7 +20,7 @@ class TicketSearch extends Ticket
         return array_merge(
             parent::attributes(),
             [
-                'projekt.titel','ticketKategorie.name','bearbeiter.name','ticketStatus.name','createUser.name'
+                'projekt.name','ticketKategorie.name','bearbeiter.name','ticketStatus.name','createUser.name'
             ]
         );
     }
@@ -31,7 +31,7 @@ class TicketSearch extends Ticket
     {
         return [
             [['id', 'projekt_id', 'ticket_kategorie_id', 'bearbeiter_id', 'ticket_status_id', 'crus', 'upus'], 'integer'],
-            [['titel', 'beschreibung', 'crti', 'upti', 'projekt.titel', 'ticketKategorie.name', 'bearbeiter.name',
+            [['titel', 'beschreibung', 'crti', 'upti', 'projekt.name', 'ticketKategorie.name', 'bearbeiter.name',
                 'ticketStatus.name', 'createUser.name'], 'safe'],
         ];
     }
@@ -73,9 +73,9 @@ class TicketSearch extends Ticket
             'query' => $query,
         ]);
 
-        $dataProvider->sort->attributes['projekt.titel'] = [
-            'asc' => [ 'projekt.titel' => SORT_ASC],
-            'desc'=> [ 'projekt.titel' => SORT_DESC]
+        $dataProvider->sort->attributes['projekt.name'] = [
+            'asc' => [ 'projekt.name' => SORT_ASC],
+            'desc'=> [ 'projekt.name' => SORT_DESC]
         ];
         $dataProvider->sort->attributes['ticketKategorie.name'] = [
             'asc' => [ 'ticket_kategorie.name' => SORT_ASC],
@@ -105,17 +105,17 @@ class TicketSearch extends Ticket
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'projekt_id' => $this->getAttribute('projekt.titel'),
+            'projekt_id' => $this->getAttribute('projekt.name'),
             'ticket_kategorie_id' => $this->getAttribute('ticketKategorie.name'),
             'bearbeiter_id' => $this->getAttribute('bearbeiter.name'),
-            'ticket_status_id' => $this->getAttribute('ticketStatus.name'),
-            'crus' => $this->getAttribute('createUser.name')
+            'ticket.ticket_status_id' => $this->getAttribute('ticketStatus.name'),
+            'ticket.crus' => $this->getAttribute('createUser.name')
         ]);
 
         $query->andFilterWhere(['like', 'titel', $this->titel])
             ->andFilterWhere(['like', 'beschreibung', $this->beschreibung])
-            ->andFilterWhere(FilterHelper::getDateConditionArray('crti', $this->crti))
-            ->andFilterWhere(FilterHelper::getDateConditionArray('upti', $this->upti))
+            ->andFilterWhere(FilterHelper::getDateConditionArray('ticket.crti', $this->crti))
+            ->andFilterWhere(FilterHelper::getDateConditionArray('ticket.upti', $this->upti))
         ;
 
         return $dataProvider;

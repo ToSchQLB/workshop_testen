@@ -10,10 +10,11 @@ class m181204_131459_init_data_status extends Migration
     private $data = [
         '-1' => 'Neu',
         '-2' => 'Gesehen',
-        '-3' => 'Feedback',
-        '-4' => 'Testfreigabe',
-        '-5' => 'Erledigt',
-        '-6' => 'Abgewiesen'
+        '-3' => 'In Berarbeitung',
+        '-4' => 'Feedback',
+        '-5' => 'Testfreigabe',
+        '-6' => 'Erledigt',
+        '-7' => 'Abgewiesen'
     ];
     /**
      * {@inheritdoc}

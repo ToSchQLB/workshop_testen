@@ -38,9 +38,7 @@ class m181204_132439_init_data_kategorie extends Migration
      */
     public function safeDown()
     {
-        echo "m181204_132439_init_data_kategorie cannot be reverted.\n";
-
-        return false;
+        $this->delete('ticket_kategorie');
     }
 
     /*

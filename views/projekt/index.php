@@ -38,8 +38,8 @@ $this->params['actions'][] = Html::a(Yii::t('projekt', 'Create Projekt'), ['crea
                                     ]
                             ])
                     ],
-                    'crti:date',
-                    'upti:date',
+                    'crti:datetime',
+                    'upti:datetime',
 
                     ['class' => 'yii\grid\ActionColumn'],
                 ],

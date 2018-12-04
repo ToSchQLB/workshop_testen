@@ -10,6 +10,7 @@ class m181203_101000_init_data_projekt extends Migration
     public static $data = [
         [
             'data' => [
+                'id' => 1,
                 'name' => 'Testen mit Codecept',
                 'beschreibung' => "Alles was man braucht um mit Codeception testen zu können",
                 'crus' => 4,
@@ -24,6 +25,7 @@ class m181203_101000_init_data_projekt extends Migration
         ],
         [
             'data' => [
+                'id' => 2,
                 'name' => 'Beispiel 1',
                 'beschreibung' => 'Die ist nur ein Beispiel Projekt',
                 'crus' => 3,
@@ -38,6 +40,7 @@ class m181203_101000_init_data_projekt extends Migration
         ],
         [
             'data' => [
+                'id' => 3,
                 'name' => 'Beispiel 2',
                 'beschreibung' => 'Die ist nur ein Beispiel Projekt',
                 'crus' => 3,
@@ -52,6 +55,7 @@ class m181203_101000_init_data_projekt extends Migration
         ],
         [
             'data' => [
+                'id' => 4,
                 'name' => 'Beispiel 3',
                 'beschreibung' => 'Die ist nur ein Beispiel Projekt',
                 'crus' => 2,
@@ -69,6 +73,7 @@ class m181203_101000_init_data_projekt extends Migration
      */
     public function safeUp()
     {
+        $this->delete('projekt');
         foreach (self::$data as $datum) {
             $this->insert('projekt', $datum['data']);
             foreach ($datum['rollen'] as $userId => $rolle) {

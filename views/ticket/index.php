@@ -27,14 +27,79 @@ $this->params['actions'][] = Html::a(
                 'columns' => [
                     ['class' => 'yii\grid\SerialColumn'],
 
-                    'projekt.titel',
-                    'ticketKategorie.name',
+                    [
+                        'attribute' => 'projekt.name',
+                        'filter'    => \kartik\select2\Select2::widget([
+                            'data' => \app\models\Projekt::allArray(),
+                            'model' => $searchModel,
+                            'attribute' => 'projekt.name',
+                            'options' => [
+                                'multiple' => true
+                            ],
+                            'pluginOptions' => [
+                                'allowClear' => true
+                            ]
+                        ])
+                    ],
+                    [
+                        'attribute' => 'ticketKategorie.name',
+                        'filter'    => \kartik\select2\Select2::widget([
+                            'data' => \app\models\TicketKategorie::allArray(),
+                            'model' => $searchModel,
+                            'attribute' => 'ticketKategorie.name',
+                            'options' => [
+                                'multiple' => true
+                            ],
+                            'pluginOptions' => [
+                                'allowClear' => true
+                            ]
+                        ])
+                    ],
                     'titel',
-                    'bearbeiter.name',
-                    'ticketStatus.name',
-                    'createUser.name',
-                    'crti',
-                    'upti',
+                    [
+                        'attribute' => 'bearbeiter.name',
+                        'filter'    => \kartik\select2\Select2::widget([
+                            'data' => \app\models\User::allArray(),
+                            'model' => $searchModel,
+                            'attribute' => 'bearbeiter.name',
+                            'options' => [
+                                'multiple' => true
+                            ],
+                            'pluginOptions' => [
+                                'allowClear' => true
+                            ]
+                        ])
+                    ],
+                    [
+                        'attribute' => 'ticketStatus.name',
+                        'filter'    => \kartik\select2\Select2::widget([
+                            'data' => \app\models\TicketStatus::allArray(),
+                            'model' => $searchModel,
+                            'attribute' => 'ticketStatus.name',
+                            'options' => [
+                                'multiple' => true
+                            ],
+                            'pluginOptions' => [
+                                'allowClear' => true
+                            ]
+                        ]),
+                    ],
+                    [
+                        'attribute' => 'createUser.name',
+                        'filter'    => \kartik\select2\Select2::widget([
+                            'data' => \app\models\User::allArray(),
+                            'model' => $searchModel,
+                            'attribute' => 'createUser.name',
+                            'options' => [
+                                'multiple' => true
+                            ],
+                            'pluginOptions' => [
+                                'allowClear' => true
+                            ]
+                        ])
+                    ],
+                    'crti:datetime',
+                    'upti:datetime',
 
                     ['class' => 'yii\grid\ActionColumn'],
                 ],
