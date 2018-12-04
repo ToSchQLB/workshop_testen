@@ -7,7 +7,7 @@ use yii\helpers\Html;
 
 <header class="main-header" style="position: sticky; top: 0px;">
 
-    <?= Html::a('<span class="logo-mini">APP</span><span class="logo-lg">' . Yii::$app->name . '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
+    <?= Html::a('<span class="logo-mini">T2G</span><span class="logo-lg">' . Yii::$app->name . '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
 
     <nav class="navbar navbar-static-top navbar-fixed-top" role="navigation">
 
