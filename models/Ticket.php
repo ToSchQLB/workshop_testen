@@ -30,6 +30,7 @@ use yii\helpers\ArrayHelper;
  */
 class Ticket extends CrUpRecord
 {
+    public $is_th_update = false;
     public static $icon = 'ticket';
 
     /**
@@ -153,5 +154,22 @@ class Ticket extends CrUpRecord
     public function getUsers()
     {
         return $this->hasMany(User::className(), ['id' => 'user_id'])->viaTable('ticket_user', ['ticket_id' => 'id']);
+    }
+
+
+    public function afterSave($insert, $changedAttributes)
+    {
+        parent::afterSave($insert, $changedAttributes);
+        if($this->is_th_update){
+            return;
+        }
+        if($insert){
+            $th = new TicketHistorie([
+                'ticket_id' => $this->id,
+                'user_id' => Yii::$app->user->id,
+                'ticket_status_id' => $this->ticket_status_id,
+            ]);
+            $th->save();
+        }
     }
 }

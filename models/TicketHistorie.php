@@ -97,6 +97,7 @@ class TicketHistorie extends \yii\db\ActiveRecord
     {
         parent::afterSave($insert, $changedAttributes);
         $ticket = $this->ticket;
+        $ticket->is_th_update = true;
         $ticket->ticket_status_id = $this->ticket_status_id;
         $ticket->save();
     }

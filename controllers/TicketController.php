@@ -28,16 +28,16 @@ class TicketController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['create', 'update', 'delete', 'add-history'],
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ]
-                ]
-            ]
+//            'access' => [
+//                'class' => AccessControl::className(),
+//                'only' => ['create', 'update', 'delete', 'add-history'],
+//                'rules' => [
+//                    [
+//                        'allow' => true,
+//                        'roles' => ['@'],
+//                    ]
+//                ]
+//            ]
 
         ];
     }
