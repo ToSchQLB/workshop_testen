@@ -46,6 +46,9 @@ $this->params['actions'][] = Html::a(Yii::t('ticket', 'Delete'), ['delete', 'id'
     <div class="box box-solid box-default">
         <div class="box-header">
             <h3 class="box-title">Tickethistorie</h3>
+            <a href="<?= \yii\helpers\Url::to(['ticket/add-history','ticket'=>$model->id]) ?>" class="btn btn-success btn-sm">
+                <?= Yii::t('app','hinzufügen') ?>
+            </a>
         </div>
         <div class="box-body">
             <table class="table table-striped">

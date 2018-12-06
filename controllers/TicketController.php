@@ -2,9 +2,11 @@
 
 namespace app\controllers;
 
+use app\models\TicketHistorie;
 use Yii;
 use app\models\Ticket;
 use app\models\search\TicketSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -26,6 +28,17 @@ class TicketController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['create', 'update', 'delete', 'add-history'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ]
+                ]
+            ]
+
         ];
     }
 
@@ -107,6 +120,22 @@ class TicketController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    public function actionAddHistory($ticket)
+    {
+        $model = new TicketHistorie();
+        $ticketModel = $this->findModel($ticket);
+        $model->ticket_id = $ticket;
+        $model->ticket_status_id = $ticketModel->ticket_status_id;
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $ticket]);
+        }
+
+        return $this->render('add_ticket_history', [
+            'model' => $model,
+        ]);
     }
 
     /**
