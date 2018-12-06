@@ -11,7 +11,11 @@ use app\models\TicketStatus;
 
 /**@var \yii\web\View $this */
 /**@var \app\models\TicketHistorie $model */
+
+$this->title = '';
 ?>
+
+
 
 <?php $form = ActiveForm::begin() ?>
 <div class="box box-default box-solid">
