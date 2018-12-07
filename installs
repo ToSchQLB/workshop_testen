@@ -1,11 +1,9 @@
 composer install
 
+yii migrate --migrationPath=@yii/rbac/migrations
+
 yii migrate --migrationNamespaces=Da\User\Migration
 
 config auth-manager:
     'authManager' => \yii\rbac\DbManager::className(), console + web
 
-
-yii migrate --migrationPath=@yii/rbac/migrations
-
-yii migrate
