@@ -1,0 +1,1 @@
+java -Dwebdriver.chrome.driver="test-env/chromedriver_2_44_win32.exe" -Dwebdriver.gecko.driver="test-env/geckodriver.exe" -jar test-env\selenium-server-standalone-3.141.59.jar -port 8081
