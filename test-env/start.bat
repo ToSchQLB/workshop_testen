@@ -1,0 +1,1 @@
+java -jar test-env\selenium-server-standalone-2.53.1.jar -port 8081 -Dwebdriver.chrome.driver=test-env/chromedriver.exe

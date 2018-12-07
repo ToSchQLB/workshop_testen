@@ -1,0 +1,13 @@
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - WebDriver:
+            url: http://localhost:8082/
+            browser: chrome
+            port: 8081
+            capabilities:
+                javascriptEnabled: true
+        - Yii2:
+            part: orm
+            entryScript: index-test.php
+            cleanup: false
