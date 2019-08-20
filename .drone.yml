@@ -1,0 +1,29 @@
+services:
+  web:
+    image: php:7.3-apache
+    environment:
+
+  mysql:
+    image: mysql:5
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=test_db
+      - MYSQL_USER=test_user
+      - MYSQL_PASSWORD=test_pass
+
+  selenium:
+    image: selenium/standalone-chrome:3.11
+    environment:
+      - DISPLAY=:99
+      - SE_OPTS=-debug
+
+pipeline:
+  - name: install
+    image: composer
+    commands:
+      - composer install
+      
+ - name: test
+    image: php:7
+    commands:
+      - vendor/bin/codecept run unit
