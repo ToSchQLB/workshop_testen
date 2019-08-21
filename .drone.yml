@@ -2,12 +2,25 @@ kind: pipeline
 name: default
 
 steps:
-- name: install
-  image: composer
-  commands:
-  - composer install
+  - name: install
+    image: composer
+    commands:
+      - composer install
 
-- name: test
-  image: php:7
-  commands:
-  - vendor/bin/codecept run unit
+  - name: test
+    image: php:7
+    commands:
+      - echo "<?php return ['class' => 'yii\db\Connection','dsn' => 'mysql:host=test_db;dbname=workshop_testen','username' => 'test_user','password' => 'test_pass','charset' => 'utf8']; ?>" > config/db.php
+      - echo "<?php return ['class' => 'yii\db\Connection','dsn' => 'mysql:host=test_db;dbname=workshop_testen','username' => 'test_user','password' => 'test_pass','charset' => 'utf8']; ?>" > config/db_test.php
+      - php yii migrate
+      - vendor/bin/codecept run unit
+
+services:
+  - name: mysql_db
+    image: mysql:5
+    ports:
+      - 3306
+    environment:
+      MYSQL_DATABASE: 'test_db'
+      MYSQL_USER: 'test_user'
+      MYSQL_PASSWORD: 'test_pass'
