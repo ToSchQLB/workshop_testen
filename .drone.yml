@@ -8,8 +8,15 @@ steps:
       - composer install
 
   - name: test
-    image: php:7
+    image: php:7-apache
     commands:
+      - docker-php-ext-install \
+        mbstring \
+        zip \
+        gd \
+        mysqli \
+        pdo \
+        pdo_mysql \
       - echo "<?php return ['class' => 'yii\db\Connection','dsn' => 'mysql:host=test_db;dbname=workshop_testen','username' => 'test_user','password' => 'test_pass','charset' => 'utf8']; ?>" > config/db.php
       - echo "<?php return ['class' => 'yii\db\Connection','dsn' => 'mysql:host=test_db;dbname=workshop_testen','username' => 'test_user','password' => 'test_pass','charset' => 'utf8']; ?>" > config/db_test.php
       - php yii migrate
