@@ -10,9 +10,8 @@ steps:
   - name: test
     image: php:7-apache
     commands:
-      - docker-php-ext-install \
-        zip \
-        gd \
+      - apt-get update && \
+        docker-php-ext-install \
         mysqli \
         pdo \
         pdo_mysql \
