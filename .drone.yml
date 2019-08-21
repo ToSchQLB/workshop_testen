@@ -13,6 +13,8 @@ steps:
       - docker-php-ext-install pdo_mysql
       - echo "<?php return ['class' => 'yii\db\Connection','dsn' => 'mysql:host=mysql_db;dbname=test_db','username' => 'test_user','password' => 'test_pass','charset' => 'utf8']; ?>" > config/db.php
       - echo "<?php return ['class' => 'yii\db\Connection','dsn' => 'mysql:host=mysql_db;dbname=test_db','username' => 'test_user','password' => 'test_pass','charset' => 'utf8']; ?>" > config/db_test.php
+      - php yii migrate --migrationPath=@yii/rbac/migrations --interactive=0
+      - php yii migrate --migrationNamespaces=Da\User\Migration --interactive=0
       - php yii migrate --interactive=0
       - vendor/bin/codecept run unit
 
@@ -26,3 +28,6 @@ services:
       MYSQL_DATABASE: 'test_db'
       MYSQL_USER: 'test_user'
       MYSQL_PASSWORD: 'test_pass'
+
+  - name: selenium
+    image: selenium/standalone-chrome
